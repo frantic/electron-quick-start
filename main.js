@@ -23,7 +23,12 @@ function createWindow () {
     mainWindow = null
   })
 
-  app.registerForRemoteNotifications();
+  console.log('UNREGISTER');
+  app.unregisterForRemoteNotifications();
+  setTimeout(function() {
+    console.log('REGISTERING…');
+    app.registerForRemoteNotifications();
+  }, 1000);
 }
 
 // This method will be called when Electron has finished

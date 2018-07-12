@@ -1,10 +1,21 @@
 {
-  "name": "electron-quick-start",
+  "name": "PushyMac",
   "version": "1.0.0",
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "im.frantic.PushyMac",
+    "mac": {
+      "type": "development",
+      "category": "public.app-category.social-networking",
+      "provisioningProfile": "build/embedded.provisionprofile"
+    },
+    "electronDist": "/Users/frantic/code/github/electron/out/R"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -17,6 +28,7 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^2.0.0"
+    "electron": "^2.0.0",
+    "electron-builder": "^20.20.4"
   }
 }
