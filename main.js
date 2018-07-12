@@ -22,6 +22,8 @@ function createWindow () {
     // when you should delete the corresponding element.
     mainWindow = null
   })
+
+  app.registerForRemoteNotifications();
 }
 
 // This method will be called when Electron has finished
@@ -37,6 +39,20 @@ app.on('window-all-closed', function () {
     app.quit()
   }
 })
+
+console.log('Testing console.log');
+
+app.on('failed-to-register-for-remote-notifications', function(event, error) {
+  console.log('FAILED:', error);
+});
+
+app.on('registered-for-remote-notifications', function(event, token) {
+  console.log('SUCCESS:', token);
+});
+
+app.on('received-remote-notification', function(event, info) {
+  console.log('NOTIFICATION:', info);
+});
 
 app.on('activate', function () {
   // On OS X it's common to re-create a window in the app when the
